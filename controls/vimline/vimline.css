@@ -1,0 +1,49 @@
+html, body {
+    /* Hide scroll bar */
+    overflow: hidden;
+}
+
+/*** WRAPPER ***/
+.vimline {
+    /* VIM Line as bar on bottom */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* Show 1px browser border on left/right */
+    padding: 0 1px;
+}
+
+/*** Input Form ***/
+.input-form {}
+
+/*** Input Lead ***/
+.input-lead {
+    /* Prevent input-line from wrapping*/
+    float: left;
+    /* Add padding around lead */
+    padding: 0 2px;
+    /* Remove selection from lead */
+    -webkit-user-select: none;
+}
+
+/*** Input Line ***/
+.input-line {
+    /* Input fills VIM Line */
+    width: 100%;
+    height: 17px;
+    /* Remove border from input */
+    border: 0;
+    /* Prevent input-line from wrapping*/
+    display: block;
+}
+
+/*** Input Wrapper ***/
+.input-wrapper {
+/* Don't wrap input to next line */
+    display: block;
+    overflow: hidden;
+}
