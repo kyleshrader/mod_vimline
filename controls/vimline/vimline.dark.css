@@ -9,5 +9,6 @@
 }
 .vimline.dark .input-line {
     background-color: inherit;
+    color: inherit;
 }
 .vimline.dark .input-wrapper {}
