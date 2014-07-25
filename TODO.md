@@ -1,13 +1,13 @@
-h1. ToDo
+# ToDo
 
-h2. Keyboard Hotkeys
+## Keyboard Hotkeys
 * ':' - Shows and focuses vimline input
 * 'y' - Yanks current url
 * 'o' - :open <?>
 * 't' - :tabopen <?>
 * 'w' - :winopen <?>
 
-h2. Commands
+## Commands
 * back         - Go back in the browser history
 * blast        - Switch to the last tab
 * bmark        - Add a bookmark
@@ -75,18 +75,18 @@ h2. Commands
 * xall         - Save the session and quit
 * zoom         - Set zoom value of current web page
 
-h2. Visual Events
+## Visual Events
 * hide 
 
-h2. Modes
+## Modes
 
-h3. Types
+### Types
 * NORMAL
 * VIMLINE
 * INSERT
 * SEARCH
 * FOLLOW
 
-h3. Mode Handler
+### Mode Handler
 
-h3. Autocomplete
+## Autocomplete
