@@ -1,12 +1,10 @@
 .vimline.dark {
     border-top: 2px solid #666;
-}
-.vimline.dark .input-form {
     background-color: #333;
     color: #fff;
 }
-.vimline.dark .input-lead {
-}
+.vimline.dark .input-form {}
+.vimline.dark .input-lead {}
 .vimline.dark .input-line {
     background-color: inherit;
     color: inherit;
