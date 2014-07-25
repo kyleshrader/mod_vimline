@@ -14,7 +14,7 @@ html, body {
     width: 100%;
     height: 100%;
     /* Show 1px browser border on left/right */
-    padding: 0 1px;
+    /* padding: 0 1px; */
 }
 
 /*** Input Form ***/
@@ -25,7 +25,7 @@ html, body {
     /* Prevent input-line from wrapping*/
     float: left;
     /* Add padding around lead */
-    padding: 0 2px;
+    padding: 0 3px;
     /* Remove selection from lead */
     -webkit-user-select: none;
 }
@@ -34,7 +34,7 @@ html, body {
 .input-line {
     /* Input fills VIM Line */
     width: 100%;
-    height: 17px;
+    height: 18px; /* subtract 1 for white bottom border */
     /* Remove border from input */
     border: 0;
     /* Prevent input-line from wrapping*/

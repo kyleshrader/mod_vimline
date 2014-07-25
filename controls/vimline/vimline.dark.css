@@ -1,4 +1,6 @@
-.vimline.dark {}
+.vimline.dark {
+    border-top: 2px solid #666;
+}
 .vimline.dark .input-form {
     background-color: #333;
     color: #fff;

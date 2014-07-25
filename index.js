@@ -24,7 +24,7 @@ var bootstrap = function(http_srv) {
             breach.module('core').call('controls_set', {
                 type: 'BOTTOM',
                 url: 'http://127.0.0.1:' + http_port + '/vimline',
-                dimension: 20
+                dimension: 22
             }, cb_);
             return cb_();
         });
