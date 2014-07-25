@@ -1,0 +1,11 @@
+.vimline.dark {}
+.vimline.dark .input-form {
+    background-color: #333;
+    color: #fff;
+}
+.vimline.dark .input-lead {
+}
+.vimline.dark .input-line {
+    background-color: inherit;
+}
+.vimline.dark .input-wrapper {}
