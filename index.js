@@ -23,7 +23,6 @@ var bootstrap = function(http_srv) {
                 dimension: 22
             }, cb_);
             breach.register('core', 'tabs:keyboard');
-            breach.register('core', 'controls:keyboard');
             common._.key_handler.init(cb_);
             return cb_();
         });
@@ -32,7 +31,9 @@ var bootstrap = function(http_srv) {
             breach.module('core').call('controls_unset', {
                 type: 'BOTTOM'
             }, cb_);
-            common._.key_handler.kill(cb_);
+            common._.key_handler.kill(function(err) {
+                common.exit(0);
+            });
             common.exit(0);
         });
     });
