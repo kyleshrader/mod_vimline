@@ -1,13 +1,5 @@
-/*
- * Breach: [mod_vimline] index.js
- *
- * Copyright (c) 2014, Kyle Kinkae. All rights reserved.
- *
+/* Breach: [mod_vimline] index.js
  * @author: kylekinkade
- *
- * @log:
- * - 2014-07-24 kylekinkade   Adding http-serving controls
- * - 2014-07-22 kylekinkade   Creation
  */
 'use strict';
 
@@ -15,10 +7,14 @@ var express = require('express');
 var http = require('http')
 var breach = require('breach_module');
 var common = require('./lib/common.js');
+var key_handler = require('./lib/key_handler').key_handler();
 
 var bootstrap = function(http_srv) {
     var http_port = http_srv.address().port;
 
+    common._ = {
+        key_handler: require('./lib/key_handler').key_handler()
+    };
     breach.init(function() {
         breach.expose('init', function(src, args, cb_) {
             breach.module('core').call('controls_set', {
@@ -26,6 +22,9 @@ var bootstrap = function(http_srv) {
                 url: 'http://127.0.0.1:' + http_port + '/vimline',
                 dimension: 22
             }, cb_);
+            breach.register('core', 'tabs:keyboard');
+            breach.register('core', 'controls:keyboard');
+            common._.key_handler.init(cb_);
             return cb_();
         });
 
@@ -33,6 +32,7 @@ var bootstrap = function(http_srv) {
             breach.module('core').call('controls_unset', {
                 type: 'BOTTOM'
             }, cb_);
+            common._.key_handler.kill(cb_);
             common.exit(0);
         });
     });
