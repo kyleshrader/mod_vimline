@@ -5,36 +5,35 @@
 
 var express = require('express');
 var http = require('http')
-var breach = require('breach_module');
 var common = require('./lib/common.js');
-var key_handler = require('./lib/key_handler').key_handler();
+var breach = require('breach_module');
+var async = require('async');
 
 var bootstrap = function(http_srv) {
     var http_port = http_srv.address().port;
 
     common._ = {
-        key_handler: require('./lib/key_handler').key_handler()
+        tabs: require('./lib/tabs.js').tabs({}),
+        vimline: require('./lib/vimline.js').vimline({http_port:http_port})
     };
+
     breach.init(function() {
+        breach.register('core', 'tabs:.*');
+
         breach.expose('init', function(src, args, cb_) {
-            breach.module('core').call('controls_set', {
-                type: 'BOTTOM',
-                url: 'http://127.0.0.1:' + http_port + '/vimline',
-                dimension: 22
-            }, cb_);
-            breach.register('core', 'tabs:keyboard');
-            common._.key_handler.init(cb_);
-            return cb_();
+            async.parallel([
+                common._.tabs.init,
+                common._.vimline.init
+            ], cb_);
         });
 
         breach.expose('kill', function(args, cb_) {
-            breach.module('core').call('controls_unset', {
-                type: 'BOTTOM'
-            }, cb_);
-            common._.key_handler.kill(function(err) {
+            async.parallel([
+                common._.tabs.kill,
+                common._.vimline.kill
+            ], function(err) {
                 common.exit(0);
             });
-            common.exit(0);
         });
     });
 };
